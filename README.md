@@ -7,7 +7,7 @@ I enjoy working with **SQL**, **Python**, **Power BI**, and visualization tools 
 - 🌱 I’m currently learning advanced DAX & Python for data analysis  
 - 👯 I’m looking to collaborate on open-source data projects or dashboards  
 - 💬 Ask me about SQL queries, Power BI, or building insightful dashboards  
-- 📫 How to reach me: [your.email@example.com](mailto:itsmbillah@gmail.com) | [LinkedIn](https://www.linkedin.com/in/itsmebillah/)  
+- 📫 How to reach me: [itsmbillah@gmail.com] | [LinkedIn](https://www.linkedin.com/in/itsmebillah/)  
 - ⚡ Fun fact: I love finding hidden patterns in messy datasets  
 
 ---
