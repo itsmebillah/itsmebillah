@@ -12,7 +12,5 @@ I enjoy working with **SQL**, **Python**, **Power BI**, and visualization tools 
 
 ---
 
-![Masum’s GitHub stats](https://github-readme-stats.vercel.app/api?username=itsmebillah&show_icons=true&theme=default)
-
----
+![GitHub stats](https://github-readme-stats.vercel.app/api?username=itsmebillah&show_icons=true)  
 
