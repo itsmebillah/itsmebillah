@@ -12,11 +12,24 @@ I enjoy working with **SQL**, **Python**, **Power BI**, and visualization tools 
 
 ---
 
-![GitHub stats](https://github-readme-stats.vercel.app/api?username=itsmebillah&show_icons=true)  
+### 💻 Tech Stack
 
-### 💻 Tech Stack & Expertise
-
-![SQL](https://img.shields.io/badge/SQL-EXPERT-blue?style=for-the-badge&logo=mysql&logoColor=white)
-![Power BI](https://img.shields.io/badge/Power_BI-EXPERT-yellow?style=for-the-badge&logo=power-bi&logoColor=black)
+![SQL](https://img.shields.io/badge/SQL-EXPERT-2ea44f?style=for-the-badge&logo=mysql&logoColor=white)
+![Power BI](https://img.shields.io/badge/Power_BI-EXPERT-F2C811?style=for-the-badge&logo=power-bi&logoColor=black)
 ![Python](https://img.shields.io/badge/Python-INTERMEDIATE-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Excel](https://img.shields.io/badge/Excel-ADVANCED-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)
+
+---
+
+### 🔍 Look me up!  
+
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white&logoWidth=40)](https://www.linkedin.com/in/itsmebillah/)  
+[![Facebook](https://img.shields.io/badge/-Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white&logoWidth=40)](https://web.facebook.com/itsmebillah)
+
+
+
+---
+
+### 📊 GitHub Stats
+
+![Md. Masum Billah's GitHub Stats](https://github-readme-stats.vercel.app/api?username=itsmebillah&show_icons=true&theme=radical)
