@@ -14,3 +14,9 @@ I enjoy working with **SQL**, **Python**, **Power BI**, and visualization tools 
 
 ![GitHub stats](https://github-readme-stats.vercel.app/api?username=itsmebillah&show_icons=true)  
 
+### 💻 Tech Stack & Expertise
+
+![SQL](https://img.shields.io/badge/SQL-EXPERT-blue?style=for-the-badge&logo=mysql&logoColor=white)
+![Power BI](https://img.shields.io/badge/Power_BI-EXPERT-yellow?style=for-the-badge&logo=power-bi&logoColor=black)
+![Python](https://img.shields.io/badge/Python-INTERMEDIATE-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Excel](https://img.shields.io/badge/Excel-ADVANCED-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)
