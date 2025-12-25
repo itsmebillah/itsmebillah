@@ -248,3 +248,113 @@ style.textContent = `
     @keyframes spin { to { transform:rotate(360deg); } }
 `;
 document.head.appendChild(style);
+
+// ==================== ANIMATED BACKGROUND ====================
+function initAnimatedBackground() {
+    const bgContainer = document.createElement('div');
+    bgContainer.className = 'animated-bg';
+    document.body.prepend(bgContainer);
+    
+    // Create bubbles
+    for (let i = 0; i < 4; i++) {
+        const bubble = document.createElement('div');
+        bubble.className = 'bubble';
+        bgContainer.appendChild(bubble);
+    }
+    
+    // Create glow effects
+    const glow1 = document.createElement('div');
+    glow1.className = 'glow glow-1';
+    bgContainer.appendChild(glow1);
+    
+    const glow2 = document.createElement('div');
+    glow2.className = 'glow glow-2';
+    bgContainer.appendChild(glow2);
+}
+
+// ==================== SCROLL EFFECTS ====================
+function initScrollEffects() {
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('.header');
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+        
+        // Parallax effect for hero
+        const hero = document.querySelector('.hero');
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * -0.5;
+        if (hero) {
+            hero.style.backgroundPosition = `center ${rate}px`;
+        }
+    });
+}
+
+// ==================== HOVER EFFECTS ====================
+function initHoverEffects() {
+    // Card hover effects
+    const cards = document.querySelectorAll('.card, .skill-card, .project-card, .contact-card');
+    
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            this.style.setProperty('--mouse-x', `${x}px`);
+            this.style.setProperty('--mouse-y', `${y}px`);
+        });
+    });
+    
+    // Button ripple effect
+    const buttons = document.querySelectorAll('.btn');
+    buttons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            const x = e.clientX - e.target.getBoundingClientRect().left;
+            const y = e.clientY - e.target.getBoundingClientRect().top;
+            
+            const ripple = document.createElement('span');
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            ripple.classList.add('ripple');
+            
+            this.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
+    });
+}
+
+// ==================== INITIALIZE EVERYTHING ====================
+document.addEventListener('DOMContentLoaded', function() {
+    // Existing initializations
+    initTheme();
+    initLanguage();
+    initNavigation();
+    initTypewriter();
+    initSkillsChart();
+    initGitHubStats();
+    initContactForm();
+    updateCurrentYear();
+    
+    // New initializations
+    initAnimatedBackground();
+    initScrollEffects();
+    initHoverEffects();
+    
+    // Hide loading screen
+    setTimeout(() => {
+        const loadingScreen = document.getElementById('loadingScreen');
+        if (loadingScreen) {
+            loadingScreen.style.opacity = '0';
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+            }, 300);
+        }
+    }, 1000);
+});
