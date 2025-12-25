@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billah | Data Analyst Portfolio</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Data Analyst specializing in Python, SQL, Power BI, and Data Visualization. Transforming raw data into actionable insights.">
+    <meta name="keywords" content="Data Analyst, Python, SQL, Power BI, Data Visualization, Machine Learning, Bangladesh">
+    <meta name="author" content="Billah">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Billah | Data Analyst Portfolio">
+    <meta property="og:description" content="Data Analyst with expertise in Python, SQL, and Data Visualization">
+    <meta property="og:image" content="https://itsmebillah.github.io/images/profile.jpg">
+    <meta property="og:url" content="https://itsmebillah.github.io">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://cdn.jsdelivr.net/npm/emoji-datasource-apple/img/apple/64/1f4ca.png">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Billah",
+      "url": "https://itsmebillah.github.io",
+      "jobTitle": "Data Analyst",
+      "skills": "Python, SQL, Power BI, Data Visualization, Machine Learning",
+      "sameAs": [
+        "https://github.com/itsmebillah",
+        "https://linkedin.com/in/itsmebillah"
+      ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader">
+            <div class="spinner"></div>
+            <p>Loading Portfolio...</p>
+        </div>
+    </div>
+
+    <!-- Floating Particles -->
+    <div class="particles-container" id="particles"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="nav-brand">
+                <div class="logo">📊</div>
+                <span class="brand-text">Billah</span>
+            </div>
+            
+            <div class="nav-links">
+                <a href="#home" class="nav-link active" data-i18n="home">Home</a>
+                <a href="#about" class="nav-link" data-i18n="about">About</a>
+                <a href="#skills" class="nav-link" data-i18n="skills">Skills</a>
+                <a href="#projects" class="nav-link" data-i18n="projects">Projects</a>
+                <a href="#contact" class="nav-link" data-i18n="contact">Contact</a>
+            </div>
+            
+            <div class="nav-controls">
+                <!-- Language Selector -->
+                <div class="language-selector">
+                    <select id="languageSelect" aria-label="Select language">
+                        <option value="en">🇺🇸 English</option>
+                        <option value="bn">🇧🇩 বাংলা</option>
+                    </select>
+                </div>
+                
+                <!-- Theme Toggle -->
+                <button id="themeToggle" class="theme-toggle">
+                    <span id="themeIcon">🌙</span>
+                    <span id="themeText" data-i18n="darkMode">Dark Mode</span>
+                </button>
+                
+                <!-- Mobile Menu -->
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-pill">🚀 Data Analyst</span>
+                </div>
+                
+                <h1 class="hero-title">
+                    Hi, I'm <span class="gradient-text">Billah</span>
+                </h1>
+                
+                <h2 class="hero-subtitle">
+                    I turn <span class="typewriter" id="typewriter">data into insights</span>
+                </h2>
+                
+                <p class="hero-description" data-i18n="heroDesc">
+                    Data Analyst specializing in Python, SQL, Power BI, and Data Visualization. 
+                    Transforming raw data into actionable business intelligence.
+                </p>
+                
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">
+                        <i class="fas fa-code"></i>
+                        <span data-i18n="viewProjects">View Projects</span>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fas fa-paper-plane"></i>
+                        <span data-i18n="contactMe">Contact Me</span>
+                    </a>
+                </div>
+                
+                <!-- Live Stats -->
+                <div class="live-stats">
+                    <div class="stat-item">
+                        <div class="stat-value" id="githubRepos">24</div>
+                        <div class="stat-label" data-i18n="projectsDone">Projects</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="githubStars">156</div>
+                        <div class="stat-label" data-i18n="stars">Stars</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="commitCount">580</div>
+                        <div class="stat-label" data-i18n="commits">Commits</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <div class="image-container">
+                    <img 
+                        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" 
+                        alt="Billah - Data Analyst"
+                        class="profile-img"
+                        loading="lazy"
+                    >
+                    <div class="image-frame"></div>
+                    <div class="floating-badge">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Data Analyst</span>
+                    </div>
+                </div>
+                
+                <!-- Achievement Badges -->
+                <div class="achievement-badges">
+                    <div class="badge" data-tooltip="Google Data Analytics Certified">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <div class="badge" data-tooltip="SQL Expert">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="badge" data-tooltip="Python Developer">
+                        <i class="fab fa-python"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="techSkills">Technical Skills</h2>
+                <p class="section-subtitle" data-i18n="skillsDesc">Technologies and tools I work with</p>
+            </div>
+            
+            <!-- Skills Dashboard -->
+            <div class="skills-dashboard">
+                <div class="dashboard-card">
+                    <h3><i class="fas fa-chart-bar"></i> <span data-i18n="skillDemand">Skill Demand Analytics</span></h3>
+                    <div class="chart-container">
+                        <canvas id="skillsChart"></canvas>
+                    </div>
+                    <div class="chart-controls">
+                        <button class="chart-btn active" data-timeframe="monthly" data-i18n="monthly">Monthly</button>
+                        <button class="chart-btn" data-timeframe="yearly" data-i18n="yearly">Yearly</button>
+                    </div>
+                </div>
+                
+                <!-- Skills Grid -->
+                <div class="skills-grid">
+                    <div class="skill-card" data-skill="python">
+                        <div class="skill-icon">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <h3>Python</h3>
+                        <p data-i18n="pythonDesc">Data Analysis, Automation, ML</p>
+                        <div class="skill-progress">
+                            <div class="progress-bar" style="width: 95%"></div>
+                        </div>
+                        <div class="skill-level">Advanced</div>
+                    </div>
+                    
+                    <div class="skill-card" data-skill="sql">
+                        <div class="skill-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>SQL</h3>
+                        <p data-i18n="sqlDesc">Queries, Optimization, ETL</p>
+                        <div class="skill-progress">
+                            <div class="progress-bar" style="width: 90%"></div>
+                        </div>
+                        <div class="skill-level">Expert</div>
+                    </div>
+                    
+                    <div class="skill-card" data-skill="powerbi">
+                        <div class="skill-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <h3>Power BI</h3>
+                        <p data-i18n="powerbiDesc">Dashboards, Reports, DAX</p>
+                        <div class="skill-progress">
+                            <div class="progress-bar" style="width: 88%"></div>
+                        </div>
+                        <div class="skill-level">Advanced</div>
+                    </div>
+                    
+                    <div class="skill-card" data-skill="excel">
+                        <div class="skill-icon">
+                            <i class="fas fa-file-excel"></i>
+                        </div>
+                        <h3>Excel</h3>
+                        <p data-i18n="excelDesc">Advanced Formulas, Pivot</p>
+                        <div class="skill-progress">
+                            <div class="progress-bar" style="width: 92%"></div>
+                        </div>
+                        <div class="skill-level">Expert</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Code Snippet -->
+            <div class="code-snippet">
+                <div class="snippet-header">
+                    <div class="snippet-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <span class="snippet-title">data_cleaning.py</span>
+                </div>
+                <pre><code class="python">
+# Data Cleaning Pipeline
+def clean_dataset(df):
+    # Remove duplicates
+    df = df.drop_duplicates()
+    
+    # Handle missing values
+    numeric_cols = df.select_dtypes(include=['number']).columns
+    df[numeric_cols] = df[numeric_cols].fillna(df[numeric_cols].median())
+    
+    # Remove outliers using IQR
+    Q1 = df[numeric_cols].quantile(0.25)
+    Q3 = df[numeric_cols].quantile(0.75)
+    IQR = Q3 - Q1
+    df = df[~((df[numeric_cols] < (Q1 - 1.5 * IQR)) | 
+              (df[numeric_cols] > (Q3 + 1.5 * IQR))).any(axis=1)]
+    
+    return df.reset_index(drop=True)
+                </code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="projects">Projects</h2>
+                <p class="section-subtitle" data-i18n="projectsDesc">Real-world data analysis projects</p>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" 
+                             alt="Sales Dashboard" loading="lazy">
+                        <div class="project-tags">
+                            <span class="tag">Power BI</span>
+                            <span class="tag">SQL</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Sales Analytics Dashboard</h3>
+                        <p data-i18n="project1Desc">Interactive dashboard showing sales trends, customer segmentation, and revenue forecasting.</p>
+                        <div class="project-stats">
+                            <span><i class="fas fa-chart-line"></i> 45% Revenue Increase</span>
+                            <span><i class="fas fa-clock"></i> 2 Weeks</span>
+                        </div>
+                        <a href="#" class="project-link" data-i18n="viewProject">View Project →</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" 
+                             alt="Machine Learning" loading="lazy">
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">ML</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Customer Churn Prediction</h3>
+                        <p data-i18n="project2Desc">Machine learning model predicting customer churn with 92% accuracy using Random Forest.</p>
+                        <div class="project-stats">
+                            <span><i class="fas fa-percentage"></i> 92% Accuracy</span>
+                            <span><i class="fas fa-clock"></i> 3 Weeks</span>
+                        </div>
+                        <a href="#" class="project-link" data-i18n="viewProject">View Project →</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" 
+                             alt="Data Pipeline" loading="lazy">
+                        <div class="project-tags">
+                            <span class="tag">ETL</span>
+                            <span class="tag">Automation</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>ETL Data Pipeline</h3>
+                        <p data-i18n="project3Desc">Automated data pipeline extracting, transforming, and loading data from multiple sources.</p>
+                        <div class="project-stats">
+                            <span><i class="fas fa-bolt"></i> 80% Faster</span>
+                            <span><i class="fas fa-clock"></i> 4 Weeks</span>
+                        </div>
+                        <a href="#" class="project-link" data-i18n="viewProject">View Project →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="getInTouch">Get In Touch</h2>
+                <p class="section-subtitle" data-i18n="contactDesc">Let's work together on your next data project</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3 data-i18n="email">Email</h3>
+                        <p>contact@itsmebillah.com</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <h3>GitHub</h3>
+                        <p>github.com/itsmebillah</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3 data-i18n="location">Location</h3>
+                        <p data-i18n="bangladesh">Bangladesh</p>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="name" data-i18n="fullName">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" data-i18n="emailAddress">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject" data-i18n="subject">Subject</label>
+                            <input type="text" id="subject" name="subject">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" data-i18n="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <div class="form-footer">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i>
+                                <span data-i18n="sendMessage">Send Message</span>
+                            </button>
+                            <div class="form-note" data-i18n="responseTime">
+                                I usually respond within 24 hours
+                            </div>
+                        </div>
+                    </form>
+                    
+                    <div class="form-status" id="formStatus"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">📊</div>
+                    <h3>Billah</h3>
+                    <p class="footer-tagline" data-i18n="footerTagline">Transforming data into decisions</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 data-i18n="quickLinks">Quick Links</h4>
+                    <a href="#home" data-i18n="home">Home</a>
+                    <a href="#skills" data-i18n="skills">Skills</a>
+                    <a href="#projects" data-i18n="projects">Projects</a>
+                    <a href="#contact" data-i18n="contact">Contact</a>
+                </div>
+                
+                <div class="footer-social">
+                    <h4 data-i18n="connect">Connect</h4>
+                    <div class="social-icons">
+                        <a href="https://github.com/itsmebillah" target="_blank" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/itsmebillah" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://twitter.com/itsmebillah" target="_blank" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="mailto:contact@itsmebillah.com" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">
+                    &copy; <span id="currentYear">2024</span> Billah. <span data-i18n="allRights">All rights reserved.</span>
+                </p>
+                <p class="footer-note">
+                    <span data-i18n="builtWith">Built with</span> 
+                    <i class="fas fa-heart"></i> 
+                    <span data-i18n="and">and</span> 
+                    <i class="fas fa-code"></i>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="script.js" defer></script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+</body>
+</html>
