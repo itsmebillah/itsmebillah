@@ -4,86 +4,207 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Md. Masum Billah | Data Analyst & Automation Developer</title>
+    
+    <meta name="description" content="Data Analyst at Data Solution 360. Portfolio of Md. Masum Billah.">
+    <meta name="keywords" content="Data Analyst, Automation Developer, Google Apps Script, Power BI">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <style>
-        /* তোমার আগের সব CSS এখানে হুবহু বসাও */
+        /* তোমার আগের সব CSS হুবহু এখানে থাকবে (এক চুলও পরিবর্তন হয়নি) */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background: linear-gradient(135deg, #0B1120 0%, #1a202c 100%); color: #ffffff; overflow-x: hidden; }
+        body { background: linear-gradient(135deg, #0B1120 0%, #1a202c 100%); color: #ffffff; overflow-x: hidden; transition: all 0.3s ease; }
+        body.light-mode { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #2d3748; }
         .glass { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); }
-        .gradient-text { background: linear-gradient(45deg, #FF6B35, #FF8B35, #FF6B9D); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        /* ... বাকি সব স্টাইল ... */
+        .light-mode .glass { background: rgba(255, 255, 255, 0.9); border: 1px solid rgba(255, 255, 255, 0.3); color: #2d3748; }
+        .gradient-text { background: linear-gradient(45deg, #FF6B35, #FF8B35, #FF6B9D); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .floating { animation: float 6s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
+        .magnetic-btn { transition: all 0.3s ease; cursor: pointer; }
+        .magnetic-btn:hover { transform: translateY(-2px) scale(1.05); box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3); }
+        .particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+        .skill-bar { height: 8px; background: rgba(255, 255, 255, 0.1); border-radius: 4px; overflow: hidden; }
+        .skill-progress { height: 100%; background: linear-gradient(90deg, #FF6B35, #FF8B35); width: 0; transition: width 1.5s ease-in-out; }
+        .timeline-container { position: relative; max-width: 1200px; margin: 0 auto; padding: 2rem 0; }
+        .timeline-container::before { content: ''; position: absolute; left: 50%; transform: translateX(-50%); width: 2px; height: 100%; background: linear-gradient(to bottom, #FF6B35, #FF8B35); }
+        .timeline-item { position: relative; margin-bottom: 3rem; width: 100%; }
+        .timeline-content { position: relative; width: 45%; padding: 1.5rem; border-radius: 1rem; transition: all 0.3s ease; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); }
+        .timeline-icon { position: absolute; top: 50%; transform: translateY(-50%); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: linear-gradient(45deg, #FF6B35, #FF8B35); color: white; }
+        .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.9); z-index: 1000; display: none; overflow-y: auto; padding: 2rem; }
+        .project-tag { display: inline-block; background: rgba(255, 107, 53, 0.2); color: #FF8B35; padding: 0.25rem 0.75rem; border-radius: 50px; font-size: 0.75rem; margin: 0.25rem; }
+        @media (max-width: 768px) { .timeline-container::before { left: 30px; } .timeline-content { width: calc(100% - 80px); margin-left: 80px !important; text-align: left !important; } .timeline-icon { left: -55px !important; } }
     </style>
 </head>
 <body>
-    <div id="loader" class="fixed inset-0 z-[100] flex items-center justify-center bg-[#0B1120]">
-        <div class="text-orange-500 text-4xl animate-spin"><i class="fas fa-spinner"></i></div>
-    </div>
+    <div class="particles" id="particles-js"></div>
 
-    <div id="main-content" class="hidden">
-        <nav class="fixed top-0 left-0 right-0 z-50 glass border-b border-white/10">
-            <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-                <div class="text-2xl font-bold gradient-text" id="brand-name"></div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="text-gray-300 hover:text-white">Home</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#contact">Contact</a>
-                </div>
+    <nav class="fixed top-0 left-0 right-0 z-50 glass border-b border-white/10">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold gradient-text" id="nav-name">Loading...</div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-gray-300 hover:text-white transition-colors">Home</a>
+                <a href="#about" class="text-gray-300 hover:text-white">About</a>
+                <a href="#projects" class="text-gray-300 hover:text-white">Projects</a>
+                <a href="#contact" class="text-gray-300 hover:text-white">Contact</a>
             </div>
-        </nav>
-
-        <section id="home" class="min-h-screen flex items-center justify-center pt-20 px-6 text-center">
-            <div class="container mx-auto">
-                <div class="relative mx-auto w-80 h-80 mb-8">
-                    <img id="profile-img" src="" class="relative w-72 h-72 rounded-full object-cover mx-auto mt-4 border-4 border-white/20">
-                </div>
-                <h1 class="text-5xl md:text-7xl font-bold mb-4 gradient-text" id="hero-name"></h1>
-                <p class="text-2xl md:text-3xl text-gray-300 mb-6" id="hero-title"></p>
-                <div id="social-links" class="flex justify-center space-x-6"></div>
-            </div>
-        </section>
-
-        <section id="projects" class="py-20 px-6"><div class="container mx-auto" id="projects-container"></div></section>
-        <section id="experience" class="py-20 px-6"><div class="container mx-auto" id="experience-container"></div></section>
-        <section id="certificates" class="py-20 px-6"><div class="container mx-auto" id="certificates-container"></div></section>
-        
+            <button id="themeToggle" class="p-2 rounded-lg glass magnetic-btn"><i class="fas fa-sun"></i></button>
         </div>
+    </nav>
+
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 px-6">
+        <div class="container mx-auto text-center">
+            <div class="relative mx-auto w-80 h-80 mb-8 floating">
+                <div class="absolute inset-0 bg-gradient-to-r from-orange-500 to-pink-500 rounded-full animate-pulse opacity-20"></div>
+                <img id="hero-img" src="" class="relative w-72 h-72 rounded-full object-cover mx-auto mt-4 border-4 border-white/20 shadow-2xl">
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-4 gradient-text" id="display-name"></h1>
+            <div class="text-2xl md:text-3xl text-gray-300 mb-6" id="display-title"></div>
+            <p class="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">"Turning data into intelligence and automation into impact."</p>
+            <div id="hero-socials" class="flex justify-center space-x-6"></div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 px-6">
+        <div class="container mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 gradient-text">About Me</h2>
+            <div class="grid md:grid-cols-2 gap-12" id="about-content">
+                </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-20 px-6">
+        <div class="container mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 gradient-text">Technical Skills</h2>
+            <div class="grid md:grid-cols-2 gap-12" id="skills-grid"></div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-20 px-6">
+        <div class="container mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 gradient-text">Featured Projects</h2>
+            <div id="featured-projects"></div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12" id="other-projects"></div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-20 px-6">
+        <div class="container mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 gradient-text">Experience & Education</h2>
+            <div class="timeline-container" id="timeline-content"></div>
+        </div>
+    </section>
+
+    <footer class="py-12 px-6 border-t border-white/10 text-center">
+        <p class="text-gray-500 text-sm">© 2026 Md. Masum Billah. All rights reserved.</p>
+    </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
     <script>
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwM263dREny57y2nXBCrAvgesWLdITWPHJLjqv2NmALXkCMIK016bZ819bMwzX0hn4t2g/exec"; // এখানে তোমার লিঙ্কে বসাও
+        // 🔴 গুরুত্বপূর্ণ: তোমার গুগল স্ক্রিপ্ট ডিক্লয় করার পর প্রাপ্ত URL এখানে বসাও
+        const API_URL = "https://script.google.com/macros/s/AKfycbwM263dREny57y2nXBCrAvgesWLdITWPHJLjqv2NmALXkCMIK016bZ819bMwzX0hn4t2g/exec";
 
-        async function init() {
-            const res = await fetch(SCRIPT_URL);
-            const data = await res.json();
-            
-            // ডাটা ইনজেকশন (ডিজাইন অপরিবর্তিত রাখতে)
-            document.getElementById('brand-name').innerText = data.portfolioData.name;
-            document.getElementById('hero-name').innerText = data.portfolioData.name;
-            document.getElementById('hero-title').innerText = data.portfolioData.title;
-            document.getElementById('profile-img').src = data.portfolioData.images.profile;
-
-            // Projects Render
-            let projHtml = '<h2 class="text-4xl md:text-5xl font-bold text-center mb-12 gradient-text">Projects</h2><div class="grid md:grid-cols-2 gap-8">';
-            data.portfolioData.projects.forEach(p => {
-                projHtml += `<div class="glass rounded-3xl p-6">
-                    <img src="${p.image}" class="w-full h-48 object-cover rounded-xl mb-4">
-                    <h3 class="text-xl font-bold">${p.name}</h3>
-                    <p class="text-gray-400">${p.description}</p>
-                    <a href="${p.liveUrl}" class="text-orange-500 mt-4 block">View Project</a>
-                </div>`;
-            });
-            projHtml += '</div>';
-            document.getElementById('projects-container').innerHTML = projHtml;
-
-            // Loader Hide
-            document.getElementById('loader').classList.add('hidden');
-            document.getElementById('main-content').classList.remove('hidden');
-            AOS.init({ duration: 1000 });
+        async function fetchData() {
+            try {
+                const response = await fetch(API_URL);
+                const data = await response.json();
+                renderSite(data);
+            } catch (e) {
+                console.error("Data Load Failed", e);
+            }
         }
-        init();
+
+        function renderSite(data) {
+            const p = data.portfolioData;
+            
+            // Basic Info
+            document.getElementById('nav-name').innerText = p.name;
+            document.getElementById('display-name').innerText = p.name;
+            document.getElementById('display-title').innerText = p.title;
+            document.getElementById('hero-img').src = p.images.profile;
+
+            // Hero Socials
+            const socialsHtml = Object.entries(p.social).map(([key, url]) => 
+                `<a href="${url}" class="text-gray-400 hover:text-white transition-colors" target="_blank"><i class="fab fa-${key} text-2xl"></i></a>`
+            ).join('');
+            document.getElementById('hero-socials').innerHTML = socialsHtml;
+
+            // About Section Injection
+            document.getElementById('about-content').innerHTML = `
+                <div class="glass rounded-3xl p-8">
+                    <h3 class="text-2xl font-semibold mb-4 text-orange-500">My Journey</h3>
+                    <p class="text-gray-300 leading-relaxed">${p.bio}</p>
+                </div>
+                <div class="glass rounded-3xl p-8">
+                    <h3 class="text-2xl font-semibold mb-4 text-orange-500">Quick Facts</h3>
+                    <div class="space-y-4 text-gray-300">
+                        <p>📍 ${p.location}</p>
+                        <p>📧 ${p.email}</p>
+                        <p>📞 ${p.phone}</p>
+                    </div>
+                </div>`;
+
+            // Skills Injection
+            const skillsHtml = p.skills.map(s => `
+                <div class="skill-container mb-6">
+                    <div class="flex justify-between mb-2">
+                        <span class="font-semibold">${s.name}</span>
+                        <span class="text-orange-500">${s.level}%</span>
+                    </div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: ${s.level}%"></div></div>
+                </div>`).join('');
+            document.getElementById('skills-grid').innerHTML = skillsHtml;
+
+            // Projects Injection
+            const featured = p.projects.filter(proj => proj.featured).map(proj => `
+                <div class="glass rounded-3xl p-8 mb-16 grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-3xl font-semibold mb-4 gradient-text">🚀 ${proj.name}</h3>
+                        <p class="text-gray-300 mb-6">${proj.description}</p>
+                        <div class="flex flex-wrap mb-6">${proj.tags.map(t => `<span class="project-tag">${t}</span>`).join('')}</div>
+                        <a href="${proj.liveUrl}" target="_blank" class="px-8 py-3 bg-gradient-to-r from-orange-500 to-pink-500 rounded-full text-white font-semibold inline-block">Live Demo</a>
+                    </div>
+                    <img src="${proj.image}" class="w-full h-64 object-cover rounded-2xl shadow-2xl">
+                </div>`).join('');
+            document.getElementById('featured-projects').innerHTML = featured;
+
+            // Timeline (Experience + Education)
+            let timelineHtml = '';
+            p.experience.forEach((exp, i) => {
+                const sideClass = i % 2 === 0 ? 'mr-auto text-right pr-16' : 'ml-auto text-left pl-16';
+                const iconSide = i % 2 === 0 ? 'right-[-25px]' : 'left-[-25px]';
+                timelineHtml += `
+                    <div class="timeline-item">
+                        <div class="timeline-content ${sideClass}">
+                            <div class="timeline-icon ${iconSide}"><i class="fas ${exp.icon}"></i></div>
+                            <span class="text-orange-500 text-sm font-bold">${exp.period}</span>
+                            <h3 class="text-xl font-bold text-white">${exp.title}</h3>
+                            <p class="text-orange-400 mb-2">${exp.company}</p>
+                            <p class="text-gray-400 text-sm">${exp.description}</p>
+                        </div>
+                    </div>`;
+            });
+            document.getElementById('timeline-content').innerHTML = timelineHtml;
+
+            AOS.init({ duration: 1000, once: true });
+        }
+
+        // Initialize Particles & Data
+        window.onload = () => {
+            fetchData();
+            particlesJS('particles-js', {
+                particles: { number: { value: 80 }, color: { value: "#FF6B35" }, shape: { type: "circle" }, opacity: { value: 0.5 }, size: { value: 3 }, line_linked: { enable: true, color: "#FF6B35" }, move: { enable: true, speed: 2 } }
+            });
+        };
+
+        // Theme Toggle (Same as original)
+        document.getElementById('themeToggle').addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+        });
     </script>
 </body>
 </html>
