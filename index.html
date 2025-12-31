@@ -5,14 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Md. Masum Billah | Data Analyst & Automation Developer</title>
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="https://i.postimg.cc/0jG9wB0k/favicon.png">
-    <!-- তোমার নিজের favicon লিংক দিতে চাইলে এখানে বদলাও -->
+    <!-- Favicon (Professional Data Analyst Icon) -->
+    <link rel="icon" type="image/png" href="https://media.istockphoto.com/id/1829736614/vector/statistics-icon-set-solid-icon-collection-vector-illustration.jpg?s=612x612&w=0&k=20&c=LrnMT3zntpA5yj7i7dUMYtWL4rXai27qt-Yr5f-Ejpo=">
     
     <!-- SEO -->
-    <meta name="description" content="Professional portfolio of Md. Masum Billah - Data Analyst, Automation Developer, and Business Intelligence Specialist.">
-    <meta name="keywords" content="Data Analyst, Automation Developer, Google Apps Script, Power BI, SQL, Python, Bangladesh">
-    <meta name="author" content="Md. Masum Billah">
+    <meta name="description" content="Professional portfolio of Md. Masum Billah - Data Analyst, Automation Developer.">
+    <meta name="keywords" content="Data Analyst, Automation, Google Apps Script, SQL, Power BI">
     
     <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -26,18 +24,42 @@
     
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background: #0B1120; color: #ffffff; overflow-x: hidden; }
         
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #1a202c; }
-        ::-webkit-scrollbar-thumb { background: linear-gradient(45deg, #FF6B35, #FF8B35); border-radius: 10px; }
+        /* Beautiful Background Effect - Gradient + Animated Blobs */
+        body {
+            background: #0B1120;
+            color: #ffffff;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 20% 80%, #FF6B35 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, #FF8B35 0%, transparent 50%),
+                        radial-gradient(circle at 50% 50%, #FF6B35 0%, transparent 40%);
+            opacity: 0.15;
+            pointer-events: none;
+            animation: floatBlobs 20s ease-in-out infinite;
+        }
+        
+        @keyframes floatBlobs {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(30px, -30px) rotate(5deg); }
+        }
         
         /* Glass Effect */
         .glass {
             background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+        }
+        .glass:hover {
+            border-color: rgba(255, 107, 53, 0.5);
+            box-shadow: 0 8px 32px rgba(255, 107, 53, 0.2);
         }
         
         /* Gradient Text */
@@ -48,532 +70,32 @@
             background-clip: text;
         }
         
-        /* Animations */
+        /* Floating Animation */
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
         .floating { animation: float 6s ease-in-out infinite; }
         
-        /* Skeleton Loading */
+        /* Skeleton */
         .skeleton {
             background: linear-gradient(90deg, #1a202c 25%, #2d3748 50%, #1a202c 75%);
             background-size: 200% 100%;
             animation: loading 1.5s infinite;
         }
         @keyframes loading { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
-        
-        @keyframes spin { to { transform: rotate(360deg); } }
-        .spinner { width: 40px; height: 40px; border: 4px solid rgba(255, 107, 53, 0.3); border-radius: 50%; border-top-color: #FF6B35; animation: spin 1s linear infinite; }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 glass border-b border-white/10">
-        <div class="container mx-auto px-4 py-3">
-            <div class="flex justify-between items-center">
-                <div class="text-xl font-bold gradient-text">Md. Masum Billah</div>
-                
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex space-x-6">
-                    <a href="#home" class="text-gray-300 hover:text-white transition-all duration-300">Home</a>
-                    <a href="#about" class="text-gray-300 hover:text-white transition-all duration-300">About</a>
-                    <a href="#services" class="text-gray-300 hover:text-white transition-all duration-300">Services</a>
-                    <a href="#skills" class="text-gray-300 hover:text-white transition-all duration-300">Skills</a>
-                    <a href="#projects" class="text-gray-300 hover:text-white transition-all duration-300">Projects</a>
-                    <a href="#blogs" class="text-gray-300 hover:text-white transition-all duration-300">Blogs</a>
-                    <a href="#certificates" class="text-gray-300 hover:text-white transition-all duration-300">Certificates</a>
-                    <a href="#experience" class="text-gray-300 hover:text-white transition-all duration-300">Experience</a>
-                    <a href="#contact" class="text-gray-300 hover:text-white transition-all duration-300">Contact</a>
-                </div>
-                
-                <a href="https://drive.google.com/file/d/1CZMQFLuvRcswPWUqZbs9LRSmn1BCp68H/view" target="_blank"
-                   class="px-4 py-2 bg-gradient-to-r from-[#FF6B35] to-[#FF8B35] text-white rounded-lg text-sm font-medium hover:opacity-90 transition-all">
-                    <i class="fas fa-download mr-2"></i>Download CV
-                </a>
-                
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="md:hidden text-2xl">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="fixed inset-0 bg-black/95 z-40 hidden flex items-center justify-center">
-            <button id="mobile-menu-close" class="absolute top-6 right-6 text-4xl">&times;</button>
-            <div class="flex flex-col space-y-8 text-center">
-                <a href="#home" class="text-3xl text-gray-300 hover:text-white transition-all">Home</a>
-                <a href="#about" class="text-3xl text-gray-300 hover:text-white transition-all">About</a>
-                <a href="#services" class="text-3xl text-gray-300 hover:text-white transition-all">Services</a>
-                <a href="#skills" class="text-3xl text-gray-300 hover:text-white transition-all">Skills</a>
-                <a href="#projects" class="text-3xl text-gray-300 hover:text-white transition-all">Projects</a>
-                <a href="#blogs" class="text-3xl text-gray-300 hover:text-white transition-all">Blogs</a>
-                <a href="#certificates" class="text-3xl text-gray-300 hover:text-white transition-all">Certificates</a>
-                <a href="#experience" class="text-3xl text-gray-300 hover:text-white transition-all">Experience</a>
-                <a href="#contact" class="text-3xl text-gray-300 hover:text-white transition-all">Contact</a>
-            </div>
-        </div>
-    </nav>
+    <!-- তোমার বাকি HTML + JS আগের মতোই (mobile menu, hero, sections সব) -->
+    <!-- আমি শুধু মেইন চেঞ্জগুলো দেখাচ্ছি, পুরো কোড তোমার আগের ফাইনাল ভার্সন থেকে এই style + favicon + profile size চেঞ্জ করো -->
 
-    <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center pt-16 px-4 relative overflow-hidden">
-        <div id="hero-bg" class="absolute inset-0 bg-cover bg-center -z-10 opacity-40"></div>
-        <div class="absolute inset-0 bg-black/60 -z-10"></div>
-        
-        <div class="container mx-auto text-center">
-            <div class="relative mx-auto w-64 h-64 mb-8 floating" id="profile-wrapper">
-                <div class="skeleton w-56 h-56 rounded-full absolute inset-4"></div>
-                <img id="profile-image" src="" alt="Md. Masum Billah" class="relative w-56 h-56 rounded-full object-cover mx-auto mt-4 border-4 border-white/10 opacity-0 transition-opacity duration-1000">
-            </div>
-            
-            <h1 id="hero-name" class="text-4xl md:text-6xl font-bold mb-4 gradient-text skeleton h-16 rounded w-96 mx-auto"></h1>
-            <div id="hero-title" class="text-xl md:text-2xl text-gray-300 mb-6 skeleton h-8 rounded w-80 mx-auto"></div>
-            <p class="text-lg text-gray-400 mb-8 max-w-2xl mx-auto skeleton h-6 rounded w-96 mx-auto"></p>
-            
-            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <a href="#projects" class="px-6 py-3 bg-gradient-to-r from-[#FF6B35] to-[#FF8B35] rounded-lg text-white font-medium hover:shadow-lg hover:shadow-[#FF6B35]/30 transition-all">
-                    <i class="fas fa-briefcase mr-2"></i>View Projects
-                </a>
-                <a href="#contact" class="px-6 py-3 glass border border-white/10 rounded-lg text-white font-medium hover:border-white/20 transition-all">
-                    <i class="fas fa-paper-plane mr-2"></i>Contact Me
-                </a>
-            </div>
-            
-            <div id="social-links" class="flex justify-center space-x-6">
-                <div class="skeleton h-10 w-48 rounded"></div>
-            </div>
-        </div>
-    </section>
+    <!-- Profile Picture Bigger -->
+    <div class="relative mx-auto w-72 h-72 mb-8 floating" id="profile-wrapper">
+        <img id="profile-image" src="" alt="Md. Masum Billah" class="relative w-64 h-64 rounded-full object-cover border-6 border-white/20 shadow-2xl">
+    </div>
 
-    <!-- Services Section -->
-    <section id="services" class="py-16 px-4">
-        <div class="container mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 gradient-text">Services I Offer</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="glass rounded-xl p-6 text-center hover:border-[#FF6B35] transition-all" data-aos="fade-up">
-                    <i class="fas fa-chart-bar text-5xl text-[#FF6B35] mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-3">Data Analysis</h3>
-                    <p class="text-gray-300 text-sm">Insightful reports, dashboards & visualization using Excel, SQL & Power BI</p>
-                </div>
-                <div class="glass rounded-xl p-6 text-center hover:border-[#FF6B35] transition-all" data-aos="fade-up" data-aos-delay="100">
-                    <i class="fas fa-robot text-5xl text-[#FF6B35] mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-3">Automation</h3>
-                    <p class="text-gray-300 text-sm">Custom Google Apps Script solutions to automate repetitive tasks</p>
-                </div>
-                <div class="glass rounded-xl p-6 text-center hover:border-[#FF6B35] transition-all" data-aos="fade-up" data-aos-delay="200">
-                    <i class="fas fa-database text-5xl text-[#FF6B35] mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-3">Data Pipelines</h3>
-                    <p class="text-gray-300 text-sm">Automated data collection, cleaning & transformation workflows</p>
-                </div>
-                <div class="glass rounded-xl p-6 text-center hover:border-[#FF6B35] transition-all" data-aos="fade-up" data-aos-delay="300">
-                    <i class="fas fa-laptop-code text-5xl text-[#FF6B35] mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-3">Custom Tools</h3>
-                    <p class="text-gray-300 text-sm">Internal web apps & dashboards using Google Apps Script</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="py-16 px-4 bg-gray-900/30">
-        <div class="container mx-auto">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div data-aos="fade-up">
-                    <h3 class="text-4xl md:text-5xl font-bold gradient-text" data-target="15">0+</h3>
-                    <p class="text-gray-400 mt-2">Projects Completed</p>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="100">
-                    <h3 class="text-4xl md:text-5xl font-bold gradient-text" data-target="8">0+</h3>
-                    <p class="text-gray-400 mt-2">Happy Clients</p>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="200">
-                    <h3 class="text-4xl md:text-5xl font-bold gradient-text" data-target="50000">0+</h3>
-                    <p class="text-gray-400 mt-2">Lines of Code</p>
-                </div>
-                <div data-aos="fade-up" data-aos-delay="300">
-                    <h3 class="text-4xl md:text-5xl font-bold gradient-text" data-target="2">0+</h3>
-                    <p class="text-gray-400 mt-2">Years Experience</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-16 px-4">
-        <div class="container mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 gradient-text">About Me</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="glass rounded-xl p-6">
-                    <h3 class="text-xl font-semibold mb-4 text-[#FF6B35]">My Journey</h3>
-                    <p id="about-bio" class="text-gray-300 leading-relaxed skeleton h-32 rounded"></p>
-                </div>
-                <div class="glass rounded-xl p-6">
-                    <h3 class="text-xl font-semibold mb-4 text-[#FF6B35]">Quick Info</h3>
-                    <div id="quick-info" class="space-y-4 skeleton h-40 rounded"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="py-16 px-4 bg-gray-900/50">
-        <div class="container mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 gradient-text">Technical Skills</h2>
-            <div id="skills-container" class="grid md:grid-cols-2 gap-8 skeleton h-96 rounded"></div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-16 px-4">
-        <div class="container mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 gradient-text">Featured Projects</h2>
-            <div id="projects-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 skeleton h-96 rounded"></div>
-        </div>
-    </section>
-
-    <!-- Blogs Section -->
-    <section id="blogs" class="py-16 px-4 bg-gray-900/50">
-        <div class="container mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 gradient-text">Latest Blogs</h2>
-            <div id="blogs-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 skeleton h-96 rounded"></div>
-        </div>
-    </section>
-
-    <!-- Certificates Section -->
-    <section id="certificates" class="py-16 px-4">
-        <div class="container mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 gradient-text">Certifications</h2>
-            <div id="certificates-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 skeleton h-96 rounded"></div>
-        </div>
-    </section>
-
-    <!-- Experience & Education -->
-    <section id="experience" class="py-16 px-4">
-        <div class="container mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 gradient-text">Experience & Education</h2>
-            <div id="timeline-container" class="space-y-8 skeleton h-96 rounded"></div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="py-16 px-4 bg-gray-900/30">
-        <div class="container mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 gradient-text">Testimonials</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="glass rounded-xl p-6" data-aos="fade-up">
-                    <p class="text-gray-300 italic mb-6">"Masum automated our entire reporting system. Saved us hundreds of hours!"</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-gray-600 rounded-full mr-4"></div>
-                        <div>
-                            <p class="font-semibold">Anonymous Client</p>
-                            <p class="text-sm text-gray-400">Business Owner</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="glass rounded-xl p-6" data-aos="fade-up" data-aos-delay="100">
-                    <p class="text-gray-300 italic mb-6">"Excellent work on data dashboards. Highly recommend!"</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-gray-600 rounded-full mr-4"></div>
-                        <div>
-                            <p class="font-semibold">Client</p>
-                            <p class="text-sm text-gray-400">Manager</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="glass rounded-xl p-6" data-aos="fade-up" data-aos-delay="200">
-                    <p class="text-gray-300 italic mb-6">"Professional, fast, and reliable automation solutions."</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-gray-600 rounded-full mr-4"></div>
-                        <div>
-                            <p class="font-semibold">Freelance Client</p>
-                            <p class="text-sm text-gray-400">Entrepreneur</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 px-4">
-        <div class="container mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 gradient-text">Get In Touch</h2>
-            <div class="max-w-2xl mx-auto">
-                <div class="glass rounded-xl p-6 mb-8">
-                    <form id="contact-form" class="space-y-4">
-                        <div class="grid md:grid-cols-2 gap-4">
-                            <input type="text" id="name" placeholder="Your Name" required class="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-[#FF6B35]">
-                            <input type="email" id="email" placeholder="Your Email" required class="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-[#FF6B35]">
-                        </div>
-                        <input type="text" id="subject" placeholder="Subject" class="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-[#FF6B35]">
-                        <textarea id="message" placeholder="Your Message" rows="4" required class="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-[#FF6B35]"></textarea>
-                        <button type="submit" id="submit-btn" class="w-full py-3 bg-gradient-to-r from-[#FF6B35] to-[#FF8B35] rounded text-white font-medium hover:opacity-90 transition-all">
-                            <span id="btn-text">Send Message</span>
-                            <div id="btn-spinner" class="spinner hidden inline-block ml-2"></div>
-                        </button>
-                    </form>
-                    <div id="form-message" class="mt-4 text-center hidden"></div>
-                </div>
-                
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <a href="mailto:itsmbillah@gmail.com" class="glass p-4 rounded text-center hover:border-[#FF6B35] transition-all">
-                        <i class="fas fa-envelope text-2xl text-[#FF6B35] mb-2"></i>
-                        <div class="text-sm font-medium">Email</div>
-                        <div class="text-xs text-gray-400">itsmbillah@gmail.com</div>
-                    </a>
-                    <a href="https://linkedin.com/in/itsmebillah" target="_blank" class="glass p-4 rounded text-center hover:border-[#FF6B35] transition-all">
-                        <i class="fab fa-linkedin text-2xl text-[#FF6B35] mb-2"></i>
-                        <div class="text-sm font-medium">LinkedIn</div>
-                    </a>
-                    <a href="https://wa.me/8801915966721" target="_blank" class="glass p-4 rounded text-center hover:border-[#FF6B35] transition-all">
-                        <i class="fab fa-whatsapp text-2xl text-[#FF6B35] mb-2"></i>
-                        <div class="text-sm font-medium">WhatsApp</div>
-                    </a>
-                    <a href="tel:+8801915966721" class="glass p-4 rounded text-center hover:border-[#FF6B35] transition-all">
-                        <i class="fas fa-phone text-2xl text-[#FF6B35] mb-2"></i>
-                        <div class="text-sm font-medium">Call</div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-8 px-4 border-t border-white/10">
-        <div class="container mx-auto text-center">
-            <div class="text-xl font-bold gradient-text mb-4" id="footer-name">Md. Masum Billah</div>
-            <p class="text-gray-400 text-sm">© <span id="current-year"></span> All rights reserved</p>
-            <p class="text-gray-500 text-xs mt-2">Built with Google Apps Script & Tailwind CSS</p>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Scripts এ console.log যোগ করো data check করার জন্য -->
     <script>
-        const CONFIG = {
-            API_URL: 'https://script.google.com/macros/s/AKfycbwM263dREny57y2nXBCrAvgesWLdITWPHJLjqv2NmALXkCMIK016bZ819bMwzX0hn4t2g/exec',
-            CACHE_KEY: 'masum_portfolio_data',
-            CACHE_TIME: 5 * 60 * 1000
-        };
-
-        class PortfolioManager {
-            constructor() { this.data = null; this.init(); }
-            
-            async init() {
-                AOS.init({ duration: 800, once: true, offset: 100 });
-                await this.loadData();
-                this.setupEventListeners();
-                this.setupMobileMenu();
-                this.setupCounterAnimation();
-                document.getElementById('current-year').textContent = new Date().getFullYear();
-            }
-            
-            async loadData() {
-                this.showLoading();
-                try {
-                    const cached = this.getCachedData();
-                    if (cached) { this.data = cached; this.renderAll(); this.hideLoading(); return; }
-                    
-                    const response = await fetch(CONFIG.API_URL + '?action=getAllData');
-                    if (!response.ok) throw new Error('Network error');
-                    const result = await response.json();
-                    
-                    if (result.success && result.data) {
-                        this.data = result.data;
-                        this.cacheData(this.data);
-                        this.renderAll();
-                    } else {
-                        this.loadFallbackData();
-                    }
-                } catch (error) {
-                    console.error(error);
-                    this.loadFallbackData();
-                } finally {
-                    this.hideLoading();
-                }
-            }
-            
-            renderAll() {
-                this.renderProfile();
-                this.renderSkills();
-                this.renderProjects();
-                this.renderBlogs();
-                this.renderCertificates();
-                this.renderTimeline();
-            }
-            
-            renderProfile() {
-                const p = this.data.profile || {};
-                document.getElementById('profile-image').src = p.profilepic || 'https://i.postimg.cc/SRhCysjL/Whats-App-Image-2025-10.jpg';
-                document.getElementById('hero-bg').style.backgroundImage = `url(${p.herobg || p.profilepic || ''})`;
-                document.getElementById('hero-name').textContent = p.name || 'Md. Masum Billah';
-                document.getElementById('hero-title').textContent = p.title || 'Data Analyst | Automation Developer';
-                document.getElementById('footer-name').textContent = p.name || 'Md. Masum Billah';
-                document.getElementById('about-bio').textContent = p.bio || 'Loading...';
-                
-                const quickInfo = document.getElementById('quick-info');
-                quickInfo.innerHTML = `
-                    <div class="flex items-center"><i class="fas fa-map-marker-alt text-[#FF6B35] mr-3"></i><span>${p.location || 'N/A'}</span></div>
-                    <div class="flex items-center"><i class="fas fa-envelope text-[#FF6B35] mr-3"></i><span>${p.email || 'N/A'}</span></div>
-                    <div class="flex items-center"><i class="fas fa-phone text-[#FF6B35] mr-3"></i><span>${p.phone || 'N/A'}</span></div>
-                `;
-                
-                const social = document.getElementById('social-links');
-                const links = [
-                    {icon: 'fab fa-linkedin', url: p.linkedin},
-                    {icon: 'fab fa-github', url: p.github},
-                    {icon: 'fab fa-facebook', url: p.facebook},
-                    {icon: 'fab fa-whatsapp', url: p.whatsapp}
-                ].filter(s => s.url);
-                social.innerHTML = links.map(s => `<a href="${s.url}" target="_blank" class="text-2xl text-gray-400 hover:text-white mx-3"><i class="${s.icon}"></i></a>`).join('');
-            }
-            
-            renderSkills() {
-                const container = document.getElementById('skills-container');
-                const skills = this.data.skills || [];
-                const half = Math.ceil(skills.length / 2);
-                container.innerHTML = `
-                    <div class="space-y-6">${skills.slice(0, half).map(s => `<div data-aos="fade-up"><div class="flex justify-between mb-1"><span class="font-medium">${s.name}</span><span class="text-[#FF6B35]">${s.level}%</span></div><div class="bg-white/10 rounded-full h-2"><div class="bg-gradient-to-r from-[#FF6B35] to-[#FF8B35] h-2 rounded-full transition-all duration-1000" style="width: ${s.level}%"></div></div><div class="text-sm text-gray-400 mt-1">${s.category || ''}</div></div>`).join('')}</div>
-                    <div class="space-y-6">${skills.slice(half).map(s => `<div data-aos="fade-up"><div class="flex justify-between mb-1"><span class="font-medium">${s.name}</span><span class="text-[#FF6B35]">${s.level}%</span></div><div class="bg-white/10 rounded-full h-2"><div class="bg-gradient-to-r from-[#FF6B35] to-[#FF8B35] h-2 rounded-full transition-all duration-1000" style="width: ${s.level}%"></div></div><div class="text-sm text-gray-400 mt-1">${s.category || ''}</div></div>`).join('')}</div>
-                `;
-            }
-            
-            renderProjects() {
-                const container = document.getElementById('projects-container');
-                const projects = this.data.projects || [];
-                if (projects.length === 0) { container.innerHTML = '<div class="col-span-3 text-center py-12 text-gray-400">No projects yet</div>'; return; }
-                container.innerHTML = projects.map(p => `
-                    <div class="glass rounded-xl overflow-hidden hover:border-[#FF6B35] transition-all" data-aos="fade-up">
-                        <img src="${p.image || 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&w=400'}" alt="${p.name}" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="font-bold text-lg mb-2">${p.name}</h3>
-                            <p class="text-gray-300 text-sm mb-4">${p.description || ''}</p>
-                            ${p.liveurl && p.liveurl !== '#' ? `<a href="${p.liveurl}" target="_blank" class="text-[#FF6B35] hover:underline text-sm">View Project →</a>` : ''}
-                        </div>
-                    </div>
-                `).join('');
-            }
-            
-            renderBlogs() {
-                const container = document.getElementById('blogs-container');
-                const blogs = this.data.blogs || [];
-                if (blogs.length === 0) { container.innerHTML = '<div class="col-span-3 text-center py-12 text-gray-400">No blogs yet. Coming soon!</div>'; return; }
-                container.innerHTML = blogs.map(b => `
-                    <div class="glass rounded-xl overflow-hidden hover:border-[#FF6B35] transition-all" data-aos="fade-up">
-                        <img src="${b.image || 'https://images.unsplash.com/photo-1499750310107-5ee3c79d2f9d?ixlib=rb-4.0.3&w=400'}" alt="${b.title}" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="font-bold text-lg mb-2">${b.title}</h3>
-                            <p class="text-gray-300 text-sm mb-4">${b.description || b.summary || ''}</p>
-                            <a href="${b.link || '#'}" target="_blank" class="text-[#FF6B35] hover:underline text-sm">Read More →</a>
-                        </div>
-                    </div>
-                `).join('');
-            }
-            
-            renderCertificates() {
-                const container = document.getElementById('certificates-container');
-                const certs = this.data.certificates || [];
-                if (certs.length === 0) { container.innerHTML = '<div class="col-span-3 text-center py-12 text-gray-400">No certificates yet</div>'; return; }
-                container.innerHTML = certs.map(c => `
-                    <div class="glass rounded-xl overflow-hidden hover:border-[#FF6B35] transition-all" data-aos="fade-up">
-                        <img src="${c.imageurl || c.image || 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&w=400'}" alt="${c.name}" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="font-bold">${c.name}</h3>
-                            <p class="text-gray-300 text-sm">${c.organization || c.org || ''}</p>
-                            <p class="text-[#FF6B35] text-sm">${c.date || ''}</p>
-                        </div>
-                    </div>
-                `).join('');
-            }
-            
-            renderTimeline() {
-                const container = document.getElementById('timeline-container');
-                const exp = this.data.experience || [];
-                const edu = this.data.education || [];
-                const all = [...exp, ...edu];
-                if (all.length === 0) { container.innerHTML = '<div class="text-center py-12 text-gray-400">No data yet</div>'; return; }
-                container.innerHTML = all.map(item => `
-                    <div class="glass rounded-xl p-6" data-aos="fade-up">
-                        <div class="flex items-start">
-                            <div class="w-12 h-12 rounded-lg bg-gradient-to-r from-[#FF6B35] to-[#FF8B35] flex items-center justify-center mr-4">
-                                <i class="fas ${item.icon || (item.company ? 'fa-briefcase' : 'fa-graduation-cap')} text-white"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-bold text-lg">${item.title || item.degree}</h3>
-                                <p class="text-[#FF6B35]">${item.company || item.institution}</p>
-                                <p class="text-gray-400 text-sm">${item.period}</p>
-                                <p class="text-gray-300 mt-2">${item.description || ''}</p>
-                            </div>
-                        </div>
-                    </div>
-                `).join('');
-            }
-            
-            getCachedData() {
-                try {
-                    const cached = localStorage.getItem(CONFIG.CACHE_KEY);
-                    if (!cached) return null;
-                    const { data, timestamp } = JSON.parse(cached);
-                    if (Date.now() - timestamp < CONFIG.CACHE_TIME) return data;
-                } catch { return null; }
-                return null;
-            }
-            
-            cacheData(data) {
-                try {
-                    localStorage.setItem(CONFIG.CACHE_KEY, JSON.stringify({ data, timestamp: Date.now() }));
-                } catch {}
-            }
-            
-            loadFallbackData() {
-                this.data = { /* তোমার আগের fallback data */ };
-                this.renderAll();
-            }
-            
-            showLoading() { /* skeleton already in HTML */ }
-            hideLoading() {
-                document.querySelectorAll('.skeleton').forEach(el => el.classList.remove('skeleton'));
-                document.getElementById('profile-image').classList.remove('opacity-0');
-                document.getElementById('profile-image').classList.add('opacity-100');
-            }
-            
-            setupMobileMenu() {
-                const btn = document.getElementById('mobile-menu-btn');
-                const menu = document.getElementById('mobile-menu');
-                const close = document.getElementById('mobile-menu-close');
-                btn.onclick = () => menu.classList.remove('hidden');
-                close.onclick = menu.onclick = (e) => { if (e.target === menu || e.target === close) menu.classList.add('hidden'); };
-            }
-            
-            setupCounterAnimation() {
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            const el = entry.target;
-                            const target = parseInt(el.getAttribute('data-target'));
-                            let count = 0;
-                            const inc = Math.ceil(target / 50);
-                            const timer = setInterval(() => {
-                                count += inc;
-                                if (count >= target) {
-                                    el.textContent = target + (el.textContent.includes('+') ? '+' : '');
-                                    clearInterval(timer);
-                                } else el.textContent = count + (el.textContent.includes('+') ? '+' : '');
-                            }, 40);
-                            observer.unobserve(el);
-                        }
-                    });
-                }, { threshold: 0.5 });
-                document.querySelectorAll('[data-target]').forEach(el => observer.observe(el));
-            }
-            
-            setupEventListeners() {
-                document.getElementById('contact-form')?.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    // তোমার আগের contact form logic
-                });
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', () => new PortfolioManager());
+        // তোমার PortfolioManager class-এ loadData()-এর পর
+        console.log('Loaded Data:', this.data); // Browser console-এ চেক করো
     </script>
 </body>
 </html>
