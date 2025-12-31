@@ -262,7 +262,7 @@
         }
 
         .timeline-item:nth-child(odd) .timeline-icon {
-            right: -30px;
+            right: -25px;
         }
 
         .timeline-item:nth-child(even) .timeline-icon {
@@ -434,6 +434,44 @@
             color: #FF8B35;
             font-weight: 500;
         }
+        /* =========================================== */
+/* EXPERIENCE SECTION SPECIFIC FIX (NEW ADDED) */
+/* =========================================== */
+
+/* শুধুমাত্র Experience section-এর জন্য */
+#experience .timeline-content {
+    padding: 2rem 2.5rem !important;
+    text-align: left !important;
+}
+
+#experience .timeline-content h3 {
+    margin-bottom: 0.75rem !important;
+    text-align: left !important;
+}
+
+#experience .timeline-company {
+    margin-bottom: 1rem !important;
+    display: block;
+}
+
+#experience .timeline-description {
+    margin-top: 1rem !important;
+    line-height: 1.7;
+    text-align: left !important;
+}
+
+/* Left এবং Right alignment fix */
+#experience .timeline-item:nth-child(odd) .timeline-content,
+#experience .timeline-item:nth-child(even) .timeline-content {
+    text-align: left !important;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    #experience .timeline-content {
+        padding: 1.5rem !important;
+    }
+}
     </style>
 </head>
 <body>
