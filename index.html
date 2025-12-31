@@ -571,73 +571,65 @@
     </section>
 
     <!-- About Section -->
- <!-- About Section -->
-<section id="about" class="py-20 px-6">
-    <div class="container mx-auto">
-        <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 gradient-text">About Me</h2>
-        
-        <div class="grid md:grid-cols-2 gap-12 items-center">
-            <div class="glass rounded-3xl p-8">
-                <h3 class="text-2xl font-semibold mb-4 text-orange-500">My Journey</h3>
-                <p class="text-gray-300 leading-relaxed mb-4">
-                    I'm <span class="gradient-text font-semibold">Md. Masum Billah</span>, a passionate Data Analyst and Automation Developer with expertise in transforming complex datasets into actionable business strategies and building systems that run themselves.
-                </p>
-                <p class="text-gray-300 leading-relaxed">
-                    I combine strong analytical skills with automation logic to streamline reporting, improve decision-making, and unlock efficiency for teams and organizations. Whether it's a Power BI dashboard, Google Apps Script automation, or data-driven business system, I build with precision, scalability, and purpose.
-                </p>
-            </div>
+    <section id="about" class="py-20 px-6">
+        <div class="container mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 gradient-text">About Me</h2>
             
-            <div class="glass rounded-3xl p-8">
-                <h3 class="text-2xl font-semibold mb-4 text-orange-500">Quick Facts</h3>
-                <div class="space-y-4">
-                    <div class="flex items-center">
-                        <i class="fas fa-map-marker-alt text-orange-500 mr-3 text-lg"></i>
-                        <span class="text-gray-300">Dhaka, Bangladesh</span>
-                    </div>
-                    <div class="flex items-center">
-                        <i class="fas fa-briefcase text-orange-500 mr-3 text-lg"></i>
-                        <span class="text-gray-300">Data Analyst at Data Solution 360</span>
-                    </div>
-                    <div class="flex items-center">
-                        <i class="fas fa-envelope text-orange-500 mr-3 text-lg"></i>
-                        <a href="mailto:itsmbillah@gmail.com" 
-                           class="text-gray-300 hover:text-orange-400 transition-colors">
-                           itsmbillah@gmail.com
-                        </a>
-                    </div>
-                    <div class="flex items-center">
-                        <i class="fas fa-phone text-orange-500 mr-3 text-lg"></i>
-                        <a href="tel:+8801915966721" 
-                           class="text-gray-300 hover:text-orange-400 transition-colors">
-                           +880 1915-966721
-                        </a>
-                    </div>
-                    <div class="flex items-center">
-                        <i class="fab fa-linkedin text-orange-500 mr-3 text-lg"></i>
-                        <a href="https://linkedin.com/in/itsmebillah" 
-                           target="_blank"
-                           class="text-gray-300 hover:text-orange-400 transition-colors">
-                           linkedin.com/in/itsmebillah
-                        </a>
-                    </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="glass rounded-3xl p-8">
+                    <h3 class="text-2xl font-semibold mb-4 text-orange-500">My Journey</h3>
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                        I'm <span class="gradient-text font-semibold" id="aboutName">Md. Masum Billah</span>, a passionate Data Analyst and Automation Developer with expertise in transforming complex datasets into actionable business strategies and building systems that run themselves.
+                    </p>
+                    <p class="text-gray-300 leading-relaxed">
+                        I combine strong analytical skills with automation logic to streamline reporting, improve decision-making, and unlock efficiency for teams and organizations. Whether it's a Power BI dashboard, Google Apps Script automation, or data-driven business system, I build with precision, scalability, and purpose.
+                    </p>
                 </div>
                 
-                <div class="mt-8 pt-8 border-t border-white/10">
-                    <h4 class="text-lg font-semibold mb-4 text-orange-500">Core Expertise</h4>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-orange-500/20 text-orange-400 rounded-full text-sm">Data Analysis</span>
-                        <span class="px-3 py-1 bg-orange-500/20 text-orange-400 rounded-full text-sm">Business Intelligence</span>
-                        <span class="px-3 py-1 bg-orange-500/20 text-orange-400 rounded-full text-sm">Automation</span>
-                        <span class="px-3 py-1 bg-orange-500/20 text-orange-400 rounded-full text-sm">Google Apps Script</span>
-                        <span class="px-3 py-1 bg-orange-500/20 text-orange-400 rounded-full text-sm">Power BI</span>
-                        <span class="px-3 py-1 bg-orange-500/20 text-orange-400 rounded-full text-sm">SQL</span>
-                        <span class="px-3 py-1 bg-orange-500/20 text-orange-400 rounded-full text-sm">Excel</span>
+                <div class="glass rounded-3xl p-8">
+                    <h3 class="text-2xl font-semibold mb-4 text-orange-500">Quick Facts</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-orange-500 mr-3 text-lg"></i>
+                            <span class="text-gray-300" id="location">Dhaka, Bangladesh</span>
+                        </div>
+                           <div class="flex items-center">
+                            <i class="fas fa-briefcase text-orange-500 mr-3 text-lg"></i>
+                            <span class="text-gray-300">Data Analyst at Data Solution 360</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-orange-500 mr-3 text-lg"></i>
+                            <a id="contactEmail" href="mailto:itsmbillah@gmail.com" class="text-gray-300 hover:text-orange-400 transition-colors">itsmbillah@gmail.com</a>
+                        </div>
+                       <div class="flex items-center">
+    <i class="fab fa-linkedin text-orange-500 mr-3 text-lg"></i>
+    <a 
+        href="https://www.linkedin.com/in/itsmebillah/" 
+        target="_blank"
+        class="text-gray-300 hover:text-orange-400 transition-colors"
+        id="linkedin"
+    >
+        linkedin.com/in/itsmebillah
+    </a>
+</div>                    
+                     
+                    </div>
+                    
+                    <div class="mt-8 pt-8 border-t border-white/10">
+                        <h4 class="text-lg font-semibold mb-4 text-orange-500">Core Expertise</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-orange-500/20 text-orange-400 rounded-full text-sm">Data Analysis</span>
+                            <span class="px-3 py-1 bg-orange-500/20 text-orange-400 rounded-full text-sm">Business Intelligence</span>
+                            <span class="px-3 py-1 bg-orange-500/20 text-orange-400 rounded-full text-sm">Automation</span>
+                            <span class="px-3 py-1 bg-orange-500/20 text-orange-400 rounded-full text-sm">Google Apps Script</span>
+                            <span class="px-3 py-1 bg-orange-500/20 text-orange-400 rounded-full text-sm">Power BI</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
     <!-- Skills Section -->
     <section id="skills" class="py-20 px-6">
         <div class="container mx-auto">
