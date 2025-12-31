@@ -14,30 +14,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Tailwind CSS (Lightweight) -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#FF6B35',
-                        secondary: '#0B1120',
-                        accent: '#FF8B35'
-                    },
-                    fontFamily: {
-                        'inter': ['Inter', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
     
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
-        /* Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -105,29 +88,12 @@
             transition: width 1.5s ease;
         }
         
-        /* Timeline */
-        .timeline-container {
-            position: relative;
+        /* Smooth Transitions */
+        .transition-smooth {
+            transition: all 0.3s ease;
         }
         
-        .timeline-container::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 100%;
-            background: linear-gradient(to bottom, #FF6B35, #FF8B35);
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .timeline-container::before {
-                left: 30px;
-            }
-        }
-        
-        /* Loading Spinner */
+        /* Loading */
         .spinner {
             width: 40px;
             height: 40px;
@@ -139,11 +105,6 @@
         
         @keyframes spin {
             to { transform: rotate(360deg); }
-        }
-        
-        /* Smooth Transitions */
-        .transition-smooth {
-            transition: all 0.3s ease;
         }
     </style>
 </head>
@@ -165,7 +126,8 @@
                 </div>
                 
                 <a href="https://drive.google.com/file/d/1CZMQFLuvRcswPWUqZbs9LRSmn1BCp68H/view" 
-                   class="px-4 py-2 bg-primary text-white rounded-lg text-sm font-medium hover:opacity-90 transition-smooth">
+                   target="_blank"
+                   class="px-4 py-2 bg-gradient-to-r from-[#FF6B35] to-[#FF8B35] text-white rounded-lg text-sm font-medium hover:opacity-90 transition-smooth">
                     <i class="fas fa-download mr-2"></i>Download CV
                 </a>
             </div>
@@ -177,17 +139,17 @@
         <div class="container mx-auto text-center">
             <!-- Profile Image -->
             <div class="relative mx-auto w-64 h-64 mb-8 floating">
-                <div class="absolute inset-0 bg-gradient-to-r from-primary to-accent rounded-full animate-pulse opacity-20"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-[#FF6B35] to-[#FF8B35] rounded-full animate-pulse opacity-20"></div>
                 <img id="profile-image" 
                      src="" 
                      alt="Md. Masum Billah"
                      class="relative w-56 h-56 rounded-full object-cover mx-auto mt-4 border-4 border-white/10">
             </div>
             
-            <h1 id="hero-name" class="text-4xl md:text-6xl font-bold mb-4 gradient-text">Loading...</h1>
+            <h1 id="hero-name" class="text-4xl md:text-6xl font-bold mb-4 gradient-text">Md. Masum Billah</h1>
             
             <div id="hero-title" class="text-xl md:text-2xl text-gray-300 mb-6">
-                Loading...
+                Data Analyst | Automation Developer
             </div>
             
             <p class="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
@@ -196,7 +158,7 @@
             
             <!-- CTA Buttons -->
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#projects" class="px-6 py-3 bg-gradient-to-r from-primary to-accent rounded-lg text-white font-medium hover:shadow-lg hover:shadow-primary/30 transition-smooth">
+                <a href="#projects" class="px-6 py-3 bg-gradient-to-r from-[#FF6B35] to-[#FF8B35] rounded-lg text-white font-medium hover:shadow-lg hover:shadow-[#FF6B35]/30 transition-smooth">
                     <i class="fas fa-briefcase mr-2"></i>View Projects
                 </a>
                 <a href="#contact" class="px-6 py-3 glass border border-white/10 rounded-lg text-white font-medium hover:border-white/20 transition-smooth">
@@ -218,14 +180,14 @@
             
             <div class="grid md:grid-cols-2 gap-8">
                 <div class="glass rounded-xl p-6">
-                    <h3 class="text-xl font-semibold mb-4 text-primary">My Journey</h3>
+                    <h3 class="text-xl font-semibold mb-4 text-[#FF6B35]">My Journey</h3>
                     <p id="about-bio" class="text-gray-300 leading-relaxed">
-                        Loading...
+                        Data Analyst at Data Solution 360 with expertise in data analysis, automation, and business intelligence.
                     </p>
                 </div>
                 
                 <div class="glass rounded-xl p-6">
-                    <h3 class="text-xl font-semibold mb-4 text-primary">Quick Info</h3>
+                    <h3 class="text-xl font-semibold mb-4 text-[#FF6B35]">Quick Info</h3>
                     <div id="quick-info" class="space-y-4">
                         <!-- Dynamic -->
                     </div>
@@ -272,10 +234,8 @@
         <div class="container mx-auto">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 gradient-text">Experience & Education</h2>
             
-            <div class="timeline-container">
-                <div id="timeline-container">
-                    <!-- Dynamic -->
-                </div>
+            <div id="timeline-container" class="space-y-8">
+                <!-- Dynamic -->
             </div>
         </div>
     </section>
@@ -289,21 +249,22 @@
                 <div class="glass rounded-xl p-6 mb-8">
                     <form id="contact-form" class="space-y-4">
                         <div class="grid md:grid-cols-2 gap-4">
-                            <input type="text" id="name" placeholder="Your Name" 
-                                   class="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-primary">
-                            <input type="email" id="email" placeholder="Your Email" 
-                                   class="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-primary">
+                            <input type="text" id="name" placeholder="Your Name" required
+                                   class="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-[#FF6B35]">
+                            <input type="email" id="email" placeholder="Your Email" required
+                                   class="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-[#FF6B35]">
                         </div>
                         
                         <input type="text" id="subject" placeholder="Subject" 
-                               class="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-primary">
+                               class="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-[#FF6B35]">
                         
-                        <textarea id="message" placeholder="Your Message" rows="4"
-                                  class="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-primary"></textarea>
+                        <textarea id="message" placeholder="Your Message" rows="4" required
+                                  class="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-[#FF6B35]"></textarea>
                         
                         <button type="submit" id="submit-btn" 
-                                class="w-full py-3 bg-gradient-to-r from-primary to-accent rounded text-white font-medium hover:opacity-90 transition-smooth">
-                            Send Message
+                                class="w-full py-3 bg-gradient-to-r from-[#FF6B35] to-[#FF8B35] rounded text-white font-medium hover:opacity-90 transition-smooth">
+                            <span id="btn-text">Send Message</span>
+                            <div id="btn-spinner" class="spinner hidden inline-block ml-2"></div>
                         </button>
                     </form>
                     
@@ -312,29 +273,29 @@
                 
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <a href="mailto:itsmbillah@gmail.com" 
-                       class="glass p-4 rounded text-center hover:border-primary transition-smooth">
-                        <i class="fas fa-envelope text-2xl text-primary mb-2"></i>
+                       class="glass p-4 rounded text-center hover:border-[#FF6B35] transition-smooth">
+                        <i class="fas fa-envelope text-2xl text-[#FF6B35] mb-2"></i>
                         <div class="text-sm font-medium">Email</div>
                         <div class="text-xs text-gray-400">itsmbillah@gmail.com</div>
                     </a>
                     
                     <a href="https://linkedin.com/in/itsmebillah" target="_blank"
-                       class="glass p-4 rounded text-center hover:border-primary transition-smooth">
-                        <i class="fab fa-linkedin text-2xl text-primary mb-2"></i>
+                       class="glass p-4 rounded text-center hover:border-[#FF6B35] transition-smooth">
+                        <i class="fab fa-linkedin text-2xl text-[#FF6B35] mb-2"></i>
                         <div class="text-sm font-medium">LinkedIn</div>
                         <div class="text-xs text-gray-400">/itsmebillah</div>
                     </a>
                     
                     <a href="https://wa.me/8801915966721" target="_blank"
-                       class="glass p-4 rounded text-center hover:border-primary transition-smooth">
-                        <i class="fab fa-whatsapp text-2xl text-primary mb-2"></i>
+                       class="glass p-4 rounded text-center hover:border-[#FF6B35] transition-smooth">
+                        <i class="fab fa-whatsapp text-2xl text-[#FF6B35] mb-2"></i>
                         <div class="text-sm font-medium">WhatsApp</div>
                         <div class="text-xs text-gray-400">+880 1915-966721</div>
                     </a>
                     
                     <a href="tel:+8801915966721" 
-                       class="glass p-4 rounded text-center hover:border-primary transition-smooth">
-                        <i class="fas fa-phone text-2xl text-primary mb-2"></i>
+                       class="glass p-4 rounded text-center hover:border-[#FF6B35] transition-smooth">
+                        <i class="fas fa-phone text-2xl text-[#FF6B35] mb-2"></i>
                         <div class="text-sm font-medium">Call</div>
                         <div class="text-xs text-gray-400">+880 1915-966721</div>
                     </a>
@@ -356,48 +317,66 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
     <script>
-        // Configuration
+        // ================= CONFIGURATION =================
         const CONFIG = {
+            // ✅ YOUR API URL
             API_URL: 'https://script.google.com/macros/s/AKfycbwM263dREny57y2nXBCrAvgesWLdITWPHJLjqv2NmALXkCMIK016bZ819bMwzX0hn4t2g/exec',
-            CACHE_KEY: 'portfolio_data',
-            CACHE_DURATION: 5 * 60 * 1000 // 5 minutes
+            
+            // Cache settings
+            CACHE_KEY: 'masum_portfolio_data',
+            CACHE_TIME: 5 * 60 * 1000 // 5 minutes
         };
 
-        // Portfolio Manager
+        // ================= PORTFOLIO MANAGER =================
         class PortfolioManager {
             constructor() {
                 this.data = null;
-                this.loading = false;
                 this.init();
             }
             
             async init() {
-                AOS.init({ duration: 800, once: true });
+                // Initialize animations
+                AOS.init({
+                    duration: 800,
+                    once: true,
+                    offset: 100
+                });
+                
+                // Load data
                 await this.loadData();
+                
+                // Setup event listeners
                 this.setupEventListeners();
                 this.setupSmoothScroll();
+                
+                // Set current year
+                document.getElementById('current-year').textContent = new Date().getFullYear();
+                
+                console.log('✅ Portfolio initialized');
             }
             
             async loadData() {
-                if (this.loading) return;
+                console.log('📡 Loading data from:', CONFIG.API_URL);
                 
+                // Show loading state
                 this.showLoading();
-                this.loading = true;
                 
                 try {
                     // Try cache first
                     const cached = this.getCachedData();
                     if (cached) {
+                        console.log('📦 Using cached data');
                         this.data = cached;
                         this.renderPortfolio();
-                        this.loading = false;
                         this.hideLoading();
                         return;
                     }
                     
                     // Fetch from API
                     const startTime = Date.now();
-                    const response = await fetch(`${CONFIG.API_URL}?action=getAllData`);
+                    const response = await fetch(CONFIG.API_URL + '?action=getAllData');
+                    
+                    console.log('Response status:', response.status);
                     
                     if (!response.ok) {
                         throw new Error(`HTTP ${response.status}`);
@@ -413,16 +392,14 @@
                         this.cacheData(this.data);
                         this.renderPortfolio();
                     } else {
-                        this.showError('Failed to load data');
+                        console.warn('⚠️ Using fallback data');
                         this.loadFallbackData();
                     }
                     
                 } catch (error) {
                     console.error('❌ Load error:', error);
-                    this.showError('Loading data...');
                     this.loadFallbackData();
                 } finally {
-                    this.loading = false;
                     this.hideLoading();
                 }
             }
@@ -444,36 +421,34 @@
                 const profileImg = document.getElementById('profile-image');
                 if (profileImg && profile.profilepic) {
                     profileImg.src = profile.profilepic;
-                    profileImg.onerror = () => {
-                        profileImg.src = 'https://i.postimg.cc/SRhCysjL/Whats-App-Image-2025-10.jpg';
-                    };
+                } else if (profileImg) {
+                    profileImg.src = 'https://i.postimg.cc/SRhCysjL/Whats-App-Image-2025-10.jpg';
                 }
                 
-                // Text content
+                // Name and title
                 document.getElementById('hero-name').textContent = profile.name || 'Md. Masum Billah';
                 document.getElementById('hero-title').textContent = profile.title || 'Data Analyst | Automation Developer';
                 document.getElementById('footer-name').textContent = profile.name || 'Md. Masum Billah';
-                document.getElementById('current-year').textContent = new Date().getFullYear();
                 
                 // Bio
                 const aboutBio = document.getElementById('about-bio');
-                if (aboutBio) {
-                    aboutBio.textContent = profile.bio || 'Data Analyst specializing in automation and business intelligence.';
+                if (aboutBio && profile.bio) {
+                    aboutBio.textContent = profile.bio;
                 }
                 
                 // Quick info
                 const quickInfo = document.getElementById('quick-info');
-                if (quickInfo && profile) {
-                    const infoItems = [
+                if (quickInfo) {
+                    const items = [
                         { icon: 'fa-map-marker-alt', text: profile.location },
                         { icon: 'fa-envelope', text: profile.email },
                         { icon: 'fa-phone', text: profile.phone },
                         { icon: 'fa-briefcase', text: 'Data Analyst at Data Solution 360' }
                     ];
                     
-                    quickInfo.innerHTML = infoItems.map(item => `
+                    quickInfo.innerHTML = items.map(item => `
                         <div class="flex items-center">
-                            <i class="fas ${item.icon} text-primary mr-3"></i>
+                            <i class="fas ${item.icon} text-[#FF6B35] mr-3"></i>
                             <span class="text-gray-300">${item.text || 'N/A'}</span>
                         </div>
                     `).join('');
@@ -481,23 +456,20 @@
                 
                 // Social links
                 const socialLinks = document.getElementById('social-links');
-                if (socialLinks && profile) {
+                if (socialLinks) {
                     const socials = [
                         { icon: 'fab fa-linkedin', url: profile.linkedin },
                         { icon: 'fab fa-github', url: profile.github },
                         { icon: 'fab fa-facebook', url: profile.facebook },
                         { icon: 'fab fa-whatsapp', url: profile.whatsapp }
-                    ];
+                    ].filter(social => social.url);
                     
-                    socialLinks.innerHTML = socials.map(social => {
-                        if (!social.url) return '';
-                        return `
-                            <a href="${social.url}" target="_blank" 
-                               class="text-gray-400 hover:text-white text-xl transition-smooth">
-                                <i class="${social.icon}"></i>
-                            </a>
-                        `;
-                    }).join('');
+                    socialLinks.innerHTML = socials.map(social => `
+                        <a href="${social.url}" target="_blank" 
+                           class="text-gray-400 hover:text-white text-2xl transition-smooth">
+                            <i class="${social.icon}"></i>
+                        </a>
+                    `).join('');
                 }
             }
             
@@ -511,10 +483,10 @@
                 container.innerHTML = `
                     <div class="space-y-6">
                         ${skills.slice(0, half).map(skill => `
-                            <div>
+                            <div data-aos="fade-up">
                                 <div class="flex justify-between mb-1">
                                     <span class="font-medium">${skill.name}</span>
-                                    <span class="text-primary">${skill.level}%</span>
+                                    <span class="text-[#FF6B35]">${skill.level}%</span>
                                 </div>
                                 <div class="skill-bar">
                                     <div class="skill-progress" style="width: ${skill.level}%"></div>
@@ -525,10 +497,10 @@
                     </div>
                     <div class="space-y-6">
                         ${skills.slice(half).map(skill => `
-                            <div>
+                            <div data-aos="fade-up">
                                 <div class="flex justify-between mb-1">
                                     <span class="font-medium">${skill.name}</span>
-                                    <span class="text-primary">${skill.level}%</span>
+                                    <span class="text-[#FF6B35]">${skill.level}%</span>
                                 </div>
                                 <div class="skill-bar">
                                     <div class="skill-progress" style="width: ${skill.level}%"></div>
@@ -542,20 +514,23 @@
             
             renderProjects() {
                 const container = document.getElementById('projects-container');
-                if (!container || !this.data.projects) return;
+                if (!container) return;
                 
-                if (this.data.projects.length === 0) {
+                const projects = this.data.projects || [];
+                
+                if (projects.length === 0) {
                     container.innerHTML = `
                         <div class="col-span-3 text-center py-12">
                             <i class="fas fa-project-diagram text-4xl text-gray-400 mb-4"></i>
-                            <p class="text-gray-400">Projects coming soon</p>
+                            <p class="text-gray-400">Projects will appear here</p>
+                            <p class="text-sm text-gray-500 mt-2">Add projects in Google Sheets</p>
                         </div>
                     `;
                     return;
                 }
                 
-                container.innerHTML = this.data.projects.map(project => `
-                    <div class="glass rounded-xl overflow-hidden hover:border-primary transition-smooth">
+                container.innerHTML = projects.map(project => `
+                    <div class="glass rounded-xl overflow-hidden hover:border-[#FF6B35] transition-smooth" data-aos="fade-up">
                         <img src="${project.image || 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&w=400'}" 
                              alt="${project.name}" 
                              class="w-full h-48 object-cover">
@@ -564,17 +539,19 @@
                             <h3 class="font-bold text-lg mb-2">${project.name}</h3>
                             <p class="text-gray-300 text-sm mb-3">${project.description}</p>
                             
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                ${(project.tags || '').split(',').map(tag => `
-                                    <span class="px-2 py-1 bg-primary/10 text-primary text-xs rounded">
-                                        ${tag.trim()}
-                                    </span>
-                                `).join('')}
-                            </div>
+                            ${project.tags ? `
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    ${project.tags.split(',').map(tag => `
+                                        <span class="px-2 py-1 bg-[#FF6B35]/10 text-[#FF6B35] text-xs rounded">
+                                            ${tag.trim()}
+                                        </span>
+                                    `).join('')}
+                                </div>
+                            ` : ''}
                             
                             ${project.liveurl && project.liveurl !== '#' ? `
                                 <a href="${project.liveurl}" target="_blank"
-                                   class="inline-flex items-center text-primary hover:underline text-sm">
+                                   class="inline-flex items-center text-[#FF6B35] hover:underline text-sm">
                                     View Project <i class="fas fa-arrow-right ml-1 text-xs"></i>
                                 </a>
                             ` : ''}
@@ -585,22 +562,25 @@
             
             renderCertificates() {
                 const container = document.getElementById('certificates-container');
-                if (!container || !this.data.certificates) return;
+                if (!container) return;
                 
-                if (this.data.certificates.length === 0) {
+                const certificates = this.data.certificates || [];
+                
+                if (certificates.length === 0) {
                     container.innerHTML = `
                         <div class="col-span-3 text-center py-12">
                             <i class="fas fa-certificate text-4xl text-gray-400 mb-4"></i>
-                            <p class="text-gray-400">Certificates coming soon</p>
+                            <p class="text-gray-400">Certificates will appear here</p>
+                            <p class="text-sm text-gray-500 mt-2">Add certificates in Google Sheets</p>
                         </div>
                     `;
                     return;
                 }
                 
-                container.innerHTML = this.data.certificates.map(cert => `
-                    <div class="glass rounded-xl overflow-hidden">
+                container.innerHTML = certificates.map(cert => `
+                    <div class="glass rounded-xl overflow-hidden hover:border-[#FF6B35] transition-smooth" data-aos="fade-up">
                         <div class="relative h-40">
-                            <img src="${cert.imageurl || 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&w=400'}" 
+                            <img src="${cert.imageurl || cert.image || 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&w=400'}" 
                                  alt="${cert.name}" 
                                  class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -608,8 +588,8 @@
                         
                         <div class="p-4">
                             <h3 class="font-bold mb-1">${cert.name}</h3>
-                            <p class="text-gray-300 text-sm mb-2">${cert.organization}</p>
-                            <p class="text-primary text-sm">${cert.date || ''}</p>
+                            <p class="text-gray-300 text-sm mb-2">${cert.organization || cert.org}</p>
+                            <p class="text-[#FF6B35] text-sm">${cert.date || ''}</p>
                         </div>
                     </div>
                 `).join('');
@@ -627,27 +607,25 @@
                     container.innerHTML = `
                         <div class="text-center py-12">
                             <i class="fas fa-history text-4xl text-gray-400 mb-4"></i>
-                            <p class="text-gray-400">Experience & education coming soon</p>
+                            <p class="text-gray-400">Experience & education will appear here</p>
                         </div>
                     `;
                     return;
                 }
                 
                 container.innerHTML = allItems.map((item, index) => `
-                    <div class="mb-8 relative" data-aos="fade-up">
-                        <div class="glass rounded-xl p-4 ml-0 md:ml-12">
-                            <div class="flex items-center mb-2">
-                                <div class="w-10 h-10 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center mr-3">
-                                    <i class="fas ${item.icon || 'fa-briefcase'} text-white"></i>
-                                </div>
-                                <div>
-                                    <h3 class="font-bold">${item.title || item.degree}</h3>
-                                    <p class="text-primary text-sm">${item.company || item.institution}</p>
-                                </div>
+                    <div class="glass rounded-xl p-6" data-aos="fade-up" data-aos-delay="${index * 100}">
+                        <div class="flex items-start mb-4">
+                            <div class="w-12 h-12 rounded-lg bg-gradient-to-r from-[#FF6B35] to-[#FF8B35] flex items-center justify-center mr-4">
+                                <i class="fas ${item.icon || (item.company ? 'fa-briefcase' : 'fa-graduation-cap')} text-white"></i>
                             </div>
-                            <p class="text-gray-300 text-sm mb-2">${item.period}</p>
-                            <p class="text-gray-400">${item.description}</p>
+                            <div>
+                                <h3 class="font-bold text-lg">${item.title || item.degree}</h3>
+                                <p class="text-[#FF6B35]">${item.company || item.institution}</p>
+                                <p class="text-gray-400 text-sm mt-1">${item.period}</p>
+                            </div>
                         </div>
+                        <p class="text-gray-300">${item.description}</p>
                     </div>
                 `).join('');
             }
@@ -659,10 +637,9 @@
                     if (!cached) return null;
                     
                     const { data, timestamp } = JSON.parse(cached);
-                    const age = Date.now() - timestamp;
                     
-                    if (age < CONFIG.CACHE_DURATION) {
-                        console.log('📦 Using cached data');
+                    // Check if cache is still valid
+                    if (Date.now() - timestamp < CONFIG.CACHE_TIME) {
                         return data;
                     }
                     
@@ -680,7 +657,7 @@
                         timestamp: Date.now()
                     }));
                 } catch (error) {
-                    console.log('Cache save failed');
+                    // Ignore cache errors
                 }
             }
             
@@ -706,10 +683,34 @@
                         { name: "Python", level: "80", category: "Programming" },
                         { name: "Excel", level: "95", category: "Data Analysis" }
                     ],
-                    projects: [],
+                    projects: [
+                        {
+                            name: "Autopilot Business System",
+                            description: "Fully automated Point of Sale & Business Management System",
+                            image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&w=400",
+                            tags: "Google Apps Script,Automation",
+                            liveurl: "#"
+                        }
+                    ],
                     certificates: [],
-                    experience: [],
-                    education: []
+                    experience: [
+                        {
+                            title: "Data Analyst",
+                            company: "Data Solution 360",
+                            period: "June 2025 – Present",
+                            description: "Developing automated data pipelines and business intelligence solutions.",
+                            icon: "fa-briefcase"
+                        }
+                    ],
+                    education: [
+                        {
+                            degree: "BBA in Marketing",
+                            institution: "Mohammadpur Kendriya College",
+                            period: "2018 – 2022",
+                            description: "Specialized in Marketing with focus on data-driven strategies.",
+                            icon: "fa-graduation-cap"
+                        }
+                    ]
                 };
                 
                 this.renderPortfolio();
@@ -717,24 +718,19 @@
             
             // UI methods
             showLoading() {
-                // Show loading indicator if needed
+                // Can add loading spinner if needed
             }
             
             hideLoading() {
-                // Hide loading indicator
-            }
-            
-            showError(message) {
-                console.error('Error:', message);
-                // Could show toast notification
+                // Hide loading spinner
             }
             
             // Event listeners
             setupEventListeners() {
                 // Contact form
-                const form = document.getElementById('contact-form');
-                if (form) {
-                    form.addEventListener('submit', (e) => {
+                const contactForm = document.getElementById('contact-form');
+                if (contactForm) {
+                    contactForm.addEventListener('submit', (e) => {
                         e.preventDefault();
                         this.handleContactForm();
                     });
@@ -744,31 +740,27 @@
             async handleContactForm() {
                 const form = document.getElementById('contact-form');
                 const submitBtn = document.getElementById('submit-btn');
+                const btnText = document.getElementById('btn-text');
+                const btnSpinner = document.getElementById('btn-spinner');
                 const messageDiv = document.getElementById('form-message');
                 
                 const formData = {
                     name: document.getElementById('name').value.trim(),
                     email: document.getElementById('email').value.trim(),
-                    subject: document.getElementById('subject').value.trim(),
+                    subject: document.getElementById('subject').value.trim() || 'No Subject',
                     message: document.getElementById('message').value.trim()
                 };
                 
                 // Validation
                 if (!formData.name || !formData.email || !formData.message) {
-                    this.showFormMessage('Please fill all required fields', 'error', messageDiv);
+                    this.showMessage('Please fill all required fields', 'error', messageDiv);
                     return;
                 }
                 
-                // Email validation
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(formData.email)) {
-                    this.showFormMessage('Please enter valid email', 'error', messageDiv);
-                    return;
-                }
-                
-                // Disable button
+                // Disable button and show spinner
                 submitBtn.disabled = true;
-                submitBtn.innerHTML = 'Sending...';
+                btnText.textContent = 'Sending...';
+                btnSpinner.classList.remove('hidden');
                 
                 try {
                     const response = await fetch(CONFIG.API_URL, {
@@ -783,21 +775,24 @@
                     const result = await response.json();
                     
                     if (result.success) {
-                        this.showFormMessage(result.message, 'success', messageDiv);
+                        this.showMessage('Message sent successfully!', 'success', messageDiv);
                         form.reset();
                     } else {
-                        throw new Error(result.message);
+                        throw new Error(result.message || 'Failed to send');
                     }
                     
                 } catch (error) {
-                    this.showFormMessage('Failed to send. Please email directly.', 'error', messageDiv);
+                    console.error('Contact form error:', error);
+                    this.showMessage('Failed to send. Please email directly.', 'error', messageDiv);
                 } finally {
+                    // Reset button
                     submitBtn.disabled = false;
-                    submitBtn.innerHTML = 'Send Message';
+                    btnText.textContent = 'Send Message';
+                    btnSpinner.classList.add('hidden');
                 }
             }
             
-            showFormMessage(message, type, container) {
+            showMessage(message, type, container) {
                 container.textContent = message;
                 container.className = 'mt-4 text-center';
                 
@@ -809,6 +804,7 @@
                 
                 container.classList.remove('hidden');
                 
+                // Auto-hide success messages
                 if (type === 'success') {
                     setTimeout(() => {
                         container.classList.add('hidden');
@@ -835,7 +831,7 @@
             }
         }
 
-        // Initialize when page loads
+        // Initialize portfolio when page loads
         document.addEventListener('DOMContentLoaded', () => {
             window.portfolio = new PortfolioManager();
         });
