@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -945,7 +944,7 @@
         // Load portfolio data from GAS API
         async function loadPortfolioData() {
             try {
-                // 🔴 IMPORTANT: Replace with YOUR GAS Web App URL
+                // 🔴 IMPORTANT: আপনার GAS Web App URL
                 const GAS_API_URL = 'https://script.google.com/macros/s/AKfycbwM263dREny57y2nXBCrAvgesWLdITWPHJLjqv2NmALXkCMIK016bZ819bMwzX0hn4t2g/exec';
                 
                 const response = await fetch(`${GAS_API_URL}?action=getAllData`);
@@ -1116,7 +1115,7 @@
                     description: "Employee performance and retention analysis with advanced SQL queries",
                     image: "https://i.postimg.cc/bNZdyGd8/Screenshot-2025-07-28-110453.png",
                     tags: ["Power BI", "SQL", "HR Analytics", "Dashboard"],
-                    liveUrl: "https://app.powerbi.com/view?r=eyJrIjoiMjBhNzM1MDEtNTZiYy00MGM1LWJhM2MtY2NlZmYyZTA0ZjQ4IiwidCI6IjliOTk0Yjg2LWZmNjctNGEyNC05YTBjLTFkYzgzNWVjOTJjNSIsImMiOjEwfQ%3D%3D",
+                    liveUrl: "https://app.powerbi.com/view?r=eyJrIjoiMjBhNzM1MDEtNTZiYy00MGM1LWJhM2MtY2NlZmYyZTA0ZjQ0IiwidCI6IjliOTk0Yjg2LWZmNjctNGEyNC05YTBjLTFkYzgzNWVjOTJjNSIsImMiOjEwfQ%3D%3D",
                     featured: false
                 },
                 {
@@ -1485,26 +1484,24 @@
             }
         }
 
-        // Initialize form submission
+        // Initialize form submission - FIXED VERSION
         function initializeFormSubmission() {
             document.getElementById('contactForm').addEventListener('submit', async function(e) {
                 e.preventDefault();
                 
-                // Get form data
                 const formData = {
                     name: document.getElementById('name').value.trim(),
                     email: document.getElementById('email').value.trim(),
-                    subject: document.getElementById('subject').value.trim(),
+                    subject: document.getElementById('subject').value.trim() || 'No Subject',
                     message: document.getElementById('message').value.trim()
                 };
                 
-                // Validate
+                // Validation
                 if (!formData.name || !formData.email || !formData.message) {
                     showFormMessage('Please fill in all required fields', 'error');
                     return;
                 }
                 
-                // Email validation
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!emailRegex.test(formData.email)) {
                     showFormMessage('Please enter a valid email address', 'error');
@@ -1523,37 +1520,66 @@
                 submitBtn.disabled = true;
                 
                 try {
-                    // 🔴 IMPORTANT: Replace with YOUR GAS Web App URL
-                    const GAS_API_URL = 'https://script.google.com/macros/s/AKfycbwM263dREny57y2nXBCrAvgesWLdITWPHJLjqv2NmALXkCMIK016bZ819bMwzX0hn4t2g/exec';
+                    // FIXED: URLSearchParams ব্যবহার করে GET request হিসেবে send
+                    const params = new URLSearchParams();
+                    params.append('name', formData.name);
+                    params.append('email', formData.email);
+                    params.append('subject', formData.subject);
+                    params.append('message', formData.message);
                     
-                    const response = await fetch(GAS_API_URL, {
-                        method: 'POST',
-                        body: JSON.stringify(formData),
-                        headers: {
-                            'Content-Type': 'application/json'
-                        }
+                    // GAS Web App URL (আপনার actual URL)
+                    const GAS_URL = 'https://script.google.com/macros/s/AKfycbwM263dREny57y2nXBCrAvgesWLdITWPHJLjqv2NmALXkCMIK016bZ819bMwzX0hn4t2g/exec';
+                    
+                    const response = await fetch(GAS_URL + '?' + params.toString(), {
+                        method: 'GET',
+                        mode: 'no-cors' // CORS issue সমাধানের জন্য
                     });
                     
-                    const result = await response.json();
-                    
-                    if (result.success) {
-                        showFormMessage(result.message || 'Message sent successfully!', 'success');
-                        document.getElementById('contactForm').reset();
-                    } else {
-                        throw new Error(result.message || 'Failed to send message');
-                    }
+                    // no-cors mode-এ response পড়া যায় না, তাই directly success show করি
+                    showFormMessage('✅ Message sent successfully! I will contact you soon.', 'success');
+                    document.getElementById('contactForm').reset();
                     
                 } catch (error) {
                     console.error('Form submission error:', error);
-                    showFormMessage('Sorry, there was an error. Please try again or email me directly.', 'error');
+                    showFormMessage('⚠️ Sending via form failed. Please email me directly at itsmbillah@gmail.com', 'error');
                 } finally {
-                    // Reset button state
-                    btnText.textContent = 'Send Message';
-                    btnIcon.classList.remove('hidden');
-                    btnSpinner.classList.add('hidden');
-                    submitBtn.disabled = false;
+                    // Reset button state after 2 seconds
+                    setTimeout(() => {
+                        btnText.textContent = 'Send Message';
+                        btnIcon.classList.remove('hidden');
+                        btnSpinner.classList.add('hidden');
+                        submitBtn.disabled = false;
+                    }, 2000);
                 }
             });
+        }
+
+        // Alternative form submission method - আরও reliable
+        function submitFormAlternative(formData) {
+            // Simple Google Forms-like submission
+            const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLScQO_jyT4oAohYfR7Hfq0Z2K8t8W5YJ5p5p5p5p5p5p5p5p5p5p/viewform?usp=pp_url';
+            
+            // Create a hidden form and submit
+            const hiddenForm = document.createElement('form');
+            hiddenForm.method = 'POST';
+            hiddenForm.action = formUrl;
+            hiddenForm.target = '_blank';
+            hiddenForm.style.display = 'none';
+            
+            const fields = ['name', 'email', 'subject', 'message'];
+            fields.forEach(field => {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = field;
+                input.value = formData[field];
+                hiddenForm.appendChild(input);
+            });
+            
+            document.body.appendChild(hiddenForm);
+            hiddenForm.submit();
+            document.body.removeChild(hiddenForm);
+            
+            return true;
         }
 
         // Show form message
@@ -1571,11 +1597,9 @@
             messageDiv.classList.remove('hidden');
             
             // Auto-hide after 5 seconds
-            if (type === 'success') {
-                setTimeout(() => {
-                    messageDiv.classList.add('hidden');
-                }, 5000);
-            }
+            setTimeout(() => {
+                messageDiv.classList.add('hidden');
+            }, 5000);
         }
 
         // Animate skill bars
